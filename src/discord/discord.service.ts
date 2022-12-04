@@ -21,6 +21,9 @@ export class DiscordService {
       case 'info':
         color = '#0000ff';
         break;
+      default:
+        color = '#00ff00';
+        break;
     }
 
     const message = new MessageBuilder();
@@ -46,6 +49,11 @@ export class DiscordService {
     }
     message.setColor(color);
 
+    console.log(
+      `Sending message to discord: ${
+        webhook.message.title
+      } (${new Date().toISOString()})`,
+    );
     Hook.send(message);
   }
 }
